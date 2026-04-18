@@ -71,6 +71,25 @@
             letter-spacing: -0.5px;
         }
 
+        /* Redes sociales en header */
+        .social-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-icon {
+            color: var(--gray-dark);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--pink);
+            transform: translateY(-2px);
+        }
+
         .nav-links {
             display: flex;
             gap: 32px;
@@ -239,7 +258,7 @@
         }
 
         /* Footer */
-        footer {
+        .footer {
             background: #111;
             color: #ddd;
             padding: 48px 0 24px;
@@ -251,17 +270,33 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 32px;
+            margin-bottom: 32px;
         }
 
-        .social-links a {
-            color: white;
-            margin-right: 20px;
-            font-size: 1.5rem;
-            transition: color 0.2s;
+        .social-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .social-links a:hover {
+        .social-footer-icon {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-footer-icon:hover {
             color: var(--pink);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
         }
 
         /* Responsive */
@@ -281,6 +316,16 @@
             .hero-grid {
                 flex-direction: column;
             }
+            .social-header {
+                margin-top: 10px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .social-footer {
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -292,13 +337,14 @@
             <div class="logo">
                 <h1>Grupo Nexus</h1>
             </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#talentos">Talento</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <a href="#contacto" class="btn-primary">Trabajemos</a>
+            <div class="social-header">
+                <a href="https://www.instagram.com/gruponexusint" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/gruponexusint" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
         </div>
     </div>
 </header>
@@ -311,7 +357,7 @@
                 <div class="hero-content">
                     <h2>Conectamos marcas globales con los mejores creadores hispanos</h2>
                     <p>Grupo Nexus es una agencia internacional de marketing de influencia. Con sede operativa en Europa y raíces mexicanas, tendemos puentes entre empresas y talento en USA y Latinoamérica.</p>
-                    <a href="#contacto" class="btn-primary" style="background: var(--pink);">Impulsa tu marca →</a>
+                    <a href="#contacto" class="btn-primary">Impulsa tu marca →</a>
                     <div class="hero-stats">
                         <div class="stat"><div class="stat-number">+150</div><div>creadores verificados</div></div>
                         <div class="stat"><div class="stat-number">+12</div><div>países alcanzados</div></div>
@@ -342,7 +388,7 @@
         </div>
     </section>
 
-    <!-- Sección de Talento / Influencers (sin mostrar caras) -->
+    <!-- Sección de Talento / Influencers -->
     <div class="container">
         <div class="talent-section">
             <div class="two-columns">
@@ -370,11 +416,10 @@
             <h2 class="section-title">¿Listo para amplificar tu marca?</h2>
             <p class="section-sub">Cuéntanos tu objetivo y te conectaremos con el talento ideal en menos de 7 días.</p>
             <div style="max-width: 500px; margin: 0 auto; background: white; padding: 32px; border-radius: 32px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);">
-                <p><i class="fas fa-envelope" style="color: var(--pink); margin-right: 10px;"></i> <strong>partnerships@gruponesus.com</strong></p>
-                <p><i class="fab fa-whatsapp" style="color: #25D366; margin-right: 10px;"></i> +34 611 22 33 44 (Europa – solo negocios)</p>
-                <div class="social-links" style="margin-top: 20px; justify-content: center; display: flex;">
-                    <a href="#" style="background: none; color: #333;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="background: none; color: #333;"><i class="fab fa-linkedin-in"></i></a>
+                <p><i class="fas fa-envelope" style="color: var(--pink); margin-right: 10px;"></i> <strong>contacto@shinjimx.github.io</strong></p>
+                <div class="social-links" style="margin-top: 20px; justify-content: center; display: flex; gap: 20px;">
+                    <a href="https://www.instagram.com/gruponexusint" target="_blank" style="color: #333; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/gruponexusint" target="_blank" style="color: #333; font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></a>
                 </div>
                 <p style="margin-top: 20px; font-size: 0.85rem; color: #aaa;">Oficina operativa: Madrid, España. Atención remota global.</p>
             </div>
@@ -382,19 +427,30 @@
     </section>
 </main>
 
-<footer>
+<footer class="footer">
     <div class="container">
         <div class="footer-content">
             <div>
                 <h3 style="color: white;">Grupo Nexus</h3>
-                <p style="max-width: 260px;">Conectando marcas y creadores con propósito.</p>
+                <p>Conectando marcas y creadores con propósito.</p>
             </div>
             <div>
-                <p><strong>Contacto</strong><br>partnerships@gruponesus.com</p>
+                <p><strong>Email</strong><br>contacto@shinjimx.github.io</p>
             </div>
             <div>
-                <p><strong>Legal</strong><br>© 2025 Grupo Nexus – All rights reserved</p>
+                <p><strong>Síguenos</strong></p>
+                <div class="social-footer">
+                    <a href="https://www.instagram.com/gruponexusint" target="_blank" class="social-footer-icon">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/gruponexusint" target="_blank" class="social-footer-icon">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Grupo Nexus. Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>

@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Grupo Nexus | International Influencer Marketing</title>
     <meta name="description" content="Grupo Nexus connects global brands with the best Spanish-speaking content creators in the USA and Latin America. Talent, strategy, and results.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Fuentes con fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -15,18 +18,19 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fefafc;
-            color: #1a1a1a;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
             line-height: 1.5;
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         :root {
             --pink: #ff80b6;
             --cyan: #66E3D3;
-            --pink-soft: #fff0f5;
-            --cyan-soft: #e6f9f7;
+            --pink-soft: #2a1a22;
+            --cyan-soft: #1a2a28;
             --gray-dark: #2d2d2d;
             --gray-light: #f5f5f5;
         }
@@ -37,26 +41,41 @@
             padding: 0 24px;
         }
 
+        /* ===== HEADER ===== */
         header {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            background: rgba(10, 10, 10, 0.9);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.95);
+            border-bottom: 1px solid #222;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
             flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            border-radius: 8px;
         }
 
         .logo h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--pink), var(--cyan));
             -webkit-background-clip: text;
@@ -65,29 +84,37 @@
             letter-spacing: -0.5px;
         }
 
-        /* Language Switcher */
+        /* Controles de la derecha */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .lang-switcher {
             display: flex;
-            gap: 10px;
+            gap: 6px;
             align-items: center;
-            margin-right: 20px;
         }
 
         .lang-btn {
             background: none;
-            border: 1px solid var(--gray-light);
-            padding: 6px 14px;
+            border: 1px solid #444;
+            padding: 5px 12px;
             border-radius: 30px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
-            color: var(--gray-dark);
+            color: #aaa;
+            font-family: 'Inter', sans-serif;
         }
 
         .lang-btn.active {
             background: linear-gradient(135deg, var(--pink), var(--cyan));
             border-color: transparent;
-            color: white;
+            color: #0a0a0a;
         }
 
         .lang-btn:hover:not(.active) {
@@ -95,15 +122,31 @@
             color: var(--pink);
         }
 
+        .theme-btn {
+            background: none;
+            border: 1px solid #444;
+            padding: 5px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: #aaa;
+        }
+
+        .theme-btn:hover {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
         .social-header {
             display: flex;
-            gap: 20px;
+            gap: 14px;
             align-items: center;
         }
 
         .social-icon {
-            color: var(--gray-dark);
-            font-size: 1.4rem;
+            color: #aaa;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
             text-decoration: none;
         }
@@ -113,26 +156,9 @@
             transform: translateY(-2px);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: var(--gray-dark);
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--pink);
-        }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--pink), var(--cyan));
-            color: white !important;
+            color: #0a0a0a !important;
             padding: 10px 24px;
             border-radius: 40px;
             font-weight: 600;
@@ -141,6 +167,8 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
             text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
         }
 
         .btn-primary:hover {
@@ -148,9 +176,12 @@
             box-shadow: 0 8px 20px rgba(102,227,211,0.3);
         }
 
+        /* ===== HERO ===== */
         .hero {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--pink-soft) 0%, white 70%);
+            padding: 60px 0;
+            background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+            border-bottom: 1px solid #1a1a1a;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .hero-grid {
@@ -162,13 +193,14 @@
 
         .hero-content {
             flex: 1;
+            min-width: 280px;
         }
 
         .hero-content h2 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: linear-gradient(135deg, var(--pink), var(--cyan));
             -webkit-background-clip: text;
             background-clip: text;
@@ -176,15 +208,17 @@
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            color: #4a4a4a;
-            margin-bottom: 32px;
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 28px;
+            transition: color 0.3s ease;
         }
 
         .hero-stats {
             display: flex;
             gap: 32px;
-            margin-top: 32px;
+            margin-top: 28px;
+            flex-wrap: wrap;
         }
 
         .stat-number {
@@ -193,68 +227,90 @@
             color: var(--pink);
         }
 
+        .stat-desc {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        /* ===== SECCIONES ===== */
         .section {
-            padding: 80px 0;
+            padding: 60px 0;
+            border-bottom: 1px solid #1a1a1a;
+            transition: border-color 0.3s ease;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            color: #fff;
+            transition: color 0.3s ease;
         }
 
         .section-sub {
             text-align: center;
-            color: #666;
+            color: #aaa;
             max-width: 700px;
-            margin: 0 auto 48px;
+            margin: 0 auto 40px;
+            transition: color 0.3s ease;
         }
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
         }
 
         .card {
-            background: white;
-            padding: 32px 24px;
+            background: #141414;
+            padding: 28px 20px;
             border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
+            border: 1px solid #222;
             text-align: center;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--cyan);
-            box-shadow: 0 20px 35px rgba(102,227,211,0.1);
+            box-shadow: 0 20px 35px rgba(102,227,211,0.08);
         }
 
         .card i {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--pink);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+            transition: color 0.3s ease;
         }
 
+        .card p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        /* ===== TALENT SECTION ===== */
         .talent-section {
-            background: var(--cyan-soft);
-            border-radius: 48px;
+            background: #141414;
+            border-radius: 40px;
             margin: 40px 0;
-            padding: 60px 24px;
+            padding: 50px 24px;
+            border: 1px solid #222;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .two-columns {
             display: flex;
             flex-wrap: wrap;
-            gap: 48px;
+            gap: 40px;
             align-items: center;
         }
 
@@ -263,8 +319,10 @@
         }
 
         .badge-list li {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-weight: 500;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
         }
 
         .badge-list i {
@@ -272,29 +330,37 @@
             margin-right: 12px;
         }
 
+        /* ===== FOOTER ===== */
         .footer {
-            background: #111;
-            color: #ddd;
-            padding: 48px 0 24px;
+            background: #050505;
+            color: #999;
+            padding: 40px 0 20px;
             margin-top: 40px;
+            border-top: 1px solid #1a1a1a;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 32px;
-            margin-bottom: 32px;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+
+        .footer h3 {
+            color: #fff;
+            transition: color 0.3s ease;
         }
 
         .social-footer {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .social-footer-icon {
-            color: #ddd;
+            color: #999;
             text-decoration: none;
             transition: color 0.3s;
             display: inline-flex;
@@ -308,18 +374,139 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 24px;
-            border-top: 1px solid #333;
-            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem;
+            transition: border-color 0.3s ease;
         }
 
+        /* ================================================================ */
+        /* ===== TEMA CLARO (LIGHT THEME) ===== */
+        /* ================================================================ */
+        body.light-theme {
+            background-color: #fefafc;
+            color: #1a1a1a;
+        }
+
+        body.light-theme header {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom-color: #eee;
+        }
+
+        body.light-theme .hero {
+            background: linear-gradient(135deg, #fff0f5 0%, white 70%);
+            border-bottom-color: #eee;
+        }
+
+        body.light-theme .hero-content p {
+            color: #4a4a4a;
+        }
+
+        body.light-theme .section {
+            border-bottom-color: #eee;
+        }
+
+        body.light-theme .section-title {
+            color: #1a1a1a;
+        }
+
+        body.light-theme .section-sub {
+            color: #666;
+        }
+
+        body.light-theme .card {
+            background: white;
+            border-color: #f0f0f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        body.light-theme .card h3 {
+            color: #1a1a1a;
+        }
+
+        body.light-theme .card p {
+            color: #4a4a4a;
+        }
+
+        body.light-theme .talent-section {
+            background: #fff0f5;
+            border-color: #eee;
+        }
+
+        body.light-theme .badge-list li {
+            color: #1a1a1a;
+        }
+
+        body.light-theme .stat-desc {
+            color: #555;
+        }
+
+        body.light-theme .footer {
+            background: #f5f5f5;
+            color: #555;
+            border-top-color: #ddd;
+        }
+
+        body.light-theme .footer h3 {
+            color: #1a1a1a !important;
+        }
+
+        body.light-theme .social-footer-icon {
+            color: #555;
+        }
+
+        body.light-theme .social-footer-icon:hover {
+            color: var(--pink);
+        }
+
+        body.light-theme .footer-bottom {
+            border-top-color: #ddd;
+            color: #666;
+        }
+
+        body.light-theme .social-icon {
+            color: #333;
+        }
+
+        body.light-theme .lang-btn {
+            color: #333;
+            border-color: #ddd;
+        }
+
+        body.light-theme .theme-btn {
+            color: #333;
+            border-color: #ddd;
+        }
+
+        body.light-theme .theme-btn:hover {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        body.light-theme #mision-section {
+            background: white !important;
+        }
+
+        body.light-theme #mision-section h2 {
+            color: #1a1a1a !important;
+        }
+
+        body.light-theme #mision-section p {
+            color: #4a4a4a !important;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 16px;
+                align-items: center;
+                gap: 12px;
+            }
+            .nav-controls {
+                justify-content: center;
             }
             .hero-content h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .hero-grid {
                 flex-direction: column;
@@ -331,6 +518,23 @@
             .social-footer {
                 align-items: center;
             }
+            .logo img {
+                height: 35px;
+            }
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-controls {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
         }
     </style>
 </head>
@@ -339,14 +543,21 @@
 <header>
     <div class="container">
         <div class="navbar">
+            <!-- Logo con imagen -->
             <div class="logo">
+                <img src="logo.jpeg" alt="Grupo Nexus Logo">
                 <h1>Grupo Nexus</h1>
             </div>
-            <div style="display: flex; align-items: center;">
+
+            <!-- Controles: idioma, tema, redes -->
+            <div class="nav-controls">
                 <div class="lang-switcher">
                     <button class="lang-btn active" data-lang="es">ES</button>
                     <button class="lang-btn" data-lang="en">EN</button>
                 </div>
+                <button class="theme-btn" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <div class="social-header">
                     <a href="https://www.instagram.com/gruponexusint" target="_blank" class="social-icon" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
@@ -361,7 +572,7 @@
 </header>
 
 <main>
-    <!-- Hero Section -->
+    <!-- HERO SECTION con banner -->
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-grid">
@@ -376,22 +587,27 @@
                     <a href="#contacto" class="btn-primary lang-en" style="display:none;">Boost your brand →</a>
                     
                     <div class="hero-stats">
-                        <div class="stat"><div class="stat-number">+150</div><div class="lang-es">creadores verificados</div><div class="lang-en" style="display:none;">verified creators</div></div>
-                        <div class="stat"><div class="stat-number">+12</div><div class="lang-es">países alcanzados</div><div class="lang-en" style="display:none;">countries reached</div></div>
+                        <div class="stat">
+                            <div class="stat-number">+150</div>
+                            <div class="stat-desc lang-es">creadores verificados</div>
+                            <div class="stat-desc lang-en" style="display:none;">verified creators</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">+12</div>
+                            <div class="stat-desc lang-es">países alcanzados</div>
+                            <div class="stat-desc lang-en" style="display:none;">countries reached</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-content">
-                    <div style="background: linear-gradient(145deg, #ff80b620, #66e3d330); border-radius: 60% 40% 50% 50% / 40% 30% 70% 60%; padding: 40px; text-align: center;">
-                        <i class="fas fa-handshake" style="font-size: 6rem; color: var(--pink);"></i>
-                        <p style="margin-top: 20px; font-weight: 500;" class="lang-es">Alianzas estratégicas</p>
-                        <p style="margin-top: 20px; font-weight: 500; display:none;" class="lang-en">Strategic partnerships</p>
-                    </div>
+                <div class="hero-content" style="text-align: center;">
+                    <!-- Banner image -->
+                    <img src="banner.png" alt="Grupo Nexus Banner" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- SERVICES SECTION -->
     <section id="servicios" class="section">
         <div class="container">
             <h2 class="section-title lang-es">Soluciones 360° para marcas y creadores</h2>
@@ -400,21 +616,65 @@
             <p class="section-sub lang-en" style="display:none;">From selection to results measurement, we make every campaign authentic and effective.</p>
             
             <div class="cards-grid">
-                <div class="card"><i class="fas fa-chalkboard-user"></i><h3 class="lang-es">Estrategia de Influencers</h3><h3 class="lang-en" style="display:none;">Influencer Strategy</h3><p class="lang-es">Identificamos al talento perfecto alineado con los valores de tu marca.</p><p class="lang-en" style="display:none;">We identify the perfect talent aligned with your brand values.</p></div>
-                <div class="card"><i class="fas fa-file-signature"></i><h3 class="lang-es">Gestión de Contratos</h3><h3 class="lang-en" style="display:none;">Contract Management</h3><p class="lang-es">Coordinamos legal, pagos y entregables para que tú solo te enfoques en crecer.</p><p class="lang-en" style="display:none;">We handle legal, payments, and deliverables so you can focus on growth.</p></div>
-                <div class="card"><i class="fas fa-chart-line"></i><h3 class="lang-es">Métrica & ROI</h3><h3 class="lang-en" style="display:none;">Metrics & ROI</h3><p class="lang-es">Reporting en tiempo real, alcance real y análisis de conversión post-campaña.</p><p class="lang-en" style="display:none;">Real-time reporting, real reach, and post-campaign conversion analysis.</p></div>
-                <div class="card"><i class="fas fa-users"></i><h3 class="lang-es">Roster de Talento</h3><h3 class="lang-en" style="display:none;">Talent Roster</h3><p class="lang-es">Acceso a creadores exclusivos en nichos como belleza, gaming, lifestyle y tecnología.</p><p class="lang-en" style="display:none;">Access to exclusive creators in niches like beauty, gaming, lifestyle, and tech.</p></div>
+                <div class="card">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h3 class="lang-es">Estrategia de Influencers</h3>
+                    <h3 class="lang-en" style="display:none;">Influencer Strategy</h3>
+                    <p class="lang-es">Identificamos al talento perfecto alineado con los valores de tu marca.</p>
+                    <p class="lang-en" style="display:none;">We identify the perfect talent aligned with your brand values.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-signature"></i>
+                    <h3 class="lang-es">Gestión de Contratos</h3>
+                    <h3 class="lang-en" style="display:none;">Contract Management</h3>
+                    <p class="lang-es">Coordinamos legal, pagos y entregables para que tú solo te enfoques en crecer.</p>
+                    <p class="lang-en" style="display:none;">We handle legal, payments, and deliverables so you can focus on growth.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 class="lang-es">Métrica & ROI</h3>
+                    <h3 class="lang-en" style="display:none;">Metrics & ROI</h3>
+                    <p class="lang-es">Reporting en tiempo real, alcance real y análisis de conversión post-campaña.</p>
+                    <p class="lang-en" style="display:none;">Real-time reporting, real reach, and post-campaign conversion analysis.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3 class="lang-es">Roster de Talento</h3>
+                    <h3 class="lang-en" style="display:none;">Talent Roster</h3>
+                    <p class="lang-es">Acceso a creadores exclusivos en nichos como belleza, gaming, lifestyle y tecnología.</p>
+                    <p class="lang-en" style="display:none;">Access to exclusive creators in niches like beauty, gaming, lifestyle, and tech.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Talent Section -->
+    <!-- MISSION & VISION SECTION -->
+    <section id="mision-section" class="section" style="background: #0f0f0f; transition: background 0.3s ease;">
+        <div class="container">
+            <div class="two-columns">
+                <div>
+                    <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 16px;" class="lang-es">Nuestra Misión</h2>
+                    <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 16px; display:none;" class="lang-en">Our Mission</h2>
+                    <p style="font-size: 1rem; color: #ccc; line-height: 1.7;" class="lang-es">Conectar marcas globales con creadores hispanohablantes en toda Latinoamérica, transformando voces auténticas en crecimiento medible a través de una alianza de ciclo completo construida sobre velocidad, confianza y fluidez cultural.</p>
+                    <p style="font-size: 1rem; color: #ccc; line-height: 1.7; display:none;" class="lang-en">We connect global brands with Spanish-speaking creators across LATAM, turning authentic voices into measurable growth through a full-cycle partnership built on speed, trust, and cultural fluency.</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 16px;" class="lang-es">Nuestra Visión</h2>
+                    <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 16px; display:none;" class="lang-en">Our Vision</h2>
+                    <p style="font-size: 1rem; color: #ccc; line-height: 1.7;" class="lang-es">Ser la agencia 360 de referencia en México y Latinoamérica para marcas que buscan conectar con audiencias hispanas, reconocida por nuestra capacidad de ejecución, la calidad de nuestro talento y los resultados que entregamos.</p>
+                    <p style="font-size: 1rem; color: #ccc; line-height: 1.7; display:none;" class="lang-en">To be the leading 360 agency in Mexico and Latin America for brands seeking to connect with Hispanic audiences, recognized for our execution capability, the quality of our talent, and the results we deliver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TALENT SECTION -->
     <div class="container">
         <div class="talent-section">
             <div class="two-columns">
                 <div>
-                    <h2 style="font-size: 1.9rem; margin-bottom: 20px;" class="lang-es">Talento que conecta</h2>
-                    <h2 style="font-size: 1.9rem; margin-bottom: 20px; display:none;" class="lang-en">Talent that connects</h2>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: #fff;" class="lang-es">Talento que conecta</h2>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 16px; display:none; color: #fff;" class="lang-en">Talent that connects</h2>
                     <p class="lang-es">Contamos con una red privada de más de 150 creadores de contenido hispanohablantes con alto engagement real. Cada colaboración es auténtica, profesional y alineada a tus KPIs.</p>
                     <p class="lang-en" style="display:none;">We have a private network of over 150 Spanish-speaking content creators with real high engagement. Every collaboration is authentic, professional, and aligned with your KPIs.</p>
                     <ul class="badge-list">
@@ -423,17 +683,17 @@
                         <li><i class="fas fa-check-circle"></i> <span class="lang-es">Contenido original multiplataforma</span><span class="lang-en" style="display:none;">Original multiplatform content</span></li>
                     </ul>
                 </div>
-                <div style="background: white; padding: 32px; border-radius: 32px; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
-                    <i class="fas fa-star-of-life" style="font-size: 2.5rem; color: var(--cyan); display: block; margin-bottom: 20px;"></i>
-                    <p style="font-style: italic;" class="lang-es">"Trabajar con Grupo Nexus nos permitió entrar al mercado latino con campañas orgánicas que realmente resonaron."</p>
-                    <p style="font-style: italic; display:none;" class="lang-en">"Working with Grupo Nexus allowed us to enter the Latin market with organic campaigns that truly resonated."</p>
-                    <p style="margin-top: 16px;">— Director de marketing, marca global</p>
+                <div style="background: #1a1a1a; padding: 28px; border-radius: 28px; border: 1px solid #2a2a2a; transition: background 0.3s ease, border-color 0.3s ease;">
+                    <i class="fas fa-star-of-life" style="font-size: 2.2rem; color: var(--cyan); display: block; margin-bottom: 16px;"></i>
+                    <p style="font-style: italic; color: #ccc;" class="lang-es">"Trabajar con Grupo Nexus nos permitió entrar al mercado latino con campañas orgánicas que realmente resonaron."</p>
+                    <p style="font-style: italic; display:none; color: #ccc;" class="lang-en">"Working with Grupo Nexus allowed us to enter the Latin market with organic campaigns that truly resonated."</p>
+                    <p style="margin-top: 14px; color: #aaa;">— Director de marketing, marca global</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Contact Section -->
+    <!-- CONTACT SECTION -->
     <section id="contacto" class="section">
         <div class="container" style="text-align: center;">
             <h2 class="section-title lang-es">¿Listo para amplificar tu marca?</h2>
@@ -441,14 +701,18 @@
             <p class="section-sub lang-es">Cuéntanos tu objetivo y te conectaremos con el talento ideal en menos de 7 días.</p>
             <p class="section-sub lang-en" style="display:none;">Tell us your goal and we'll connect you with the ideal talent in less than 7 days.</p>
             
-            <div style="max-width: 500px; margin: 0 auto; background: white; padding: 32px; border-radius: 32px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);">
-                <p><i class="fas fa-envelope" style="color: var(--pink); margin-right: 10px;"></i> <strong>contacto@shinjimx.github.io</strong></p>
-                <div class="social-links" style="margin-top: 20px; justify-content: center; display: flex; gap: 20px;">
-                    <a href="https://www.instagram.com/gruponexusint" target="_blank" style="color: #333; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/gruponexusint" target="_blank" style="color: #333; font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></a>
+            <div style="max-width: 480px; margin: 0 auto; background: #141414; padding: 28px; border-radius: 28px; border: 1px solid #222; transition: background 0.3s ease, border-color 0.3s ease;">
+                <p><i class="fas fa-envelope" style="color: var(--pink); margin-right: 10px;"></i> <strong>GRUPO-NEXUS@POLSIA.APP</strong></p>
+                <div class="social-links" style="margin-top: 16px; justify-content: center; display: flex; gap: 18px;">
+                    <a href="https://www.instagram.com/gruponexusint" target="_blank" style="color: #aaa; font-size: 1.4rem; transition: color 0.3s;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/gruponexusint" target="_blank" style="color: #aaa; font-size: 1.4rem; transition: color 0.3s;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
                 </div>
-                <p style="margin-top: 20px; font-size: 0.85rem; color: #aaa;" class="lang-es">Oficina operativa: Madrid, España. Atención remota global.</p>
-                <p style="margin-top: 20px; font-size: 0.85rem; color: #aaa; display:none;" class="lang-en">Operational office: Madrid, Spain. Global remote service.</p>
+                <p style="margin-top: 16px; font-size: 0.8rem; color: #555;" class="lang-es">Oficina operativa: Madrid, España. Atención remota global.</p>
+                <p style="margin-top: 16px; font-size: 0.8rem; color: #555; display:none;" class="lang-en">Operational office: Madrid, Spain. Global remote service.</p>
             </div>
         </div>
     </section>
@@ -463,7 +727,7 @@
                 <p class="lang-en" style="display:none;">Connecting brands and creators with purpose.</p>
             </div>
             <div>
-                <p><strong>Email</strong><br>contacto@shinjimx.github.io</p>
+                <p><strong>Email</strong><br>GRUPO-NEXUS@POLSIA.APP</p>
             </div>
             <div>
                 <p><strong class="lang-es">Síguenos</strong><strong class="lang-en" style="display:none;">Follow us</strong></p>
@@ -483,25 +747,24 @@
     </div>
 </footer>
 
-<!-- JavaScript para cambio de idioma -->
+<!-- ===== JAVASCRIPT ===== -->
 <script>
-    // Guardar el idioma actual (por defecto español)
+    // ============================================================
+    // 1. IDIOMA (ES/EN)
+    // ============================================================
     let currentLang = localStorage.getItem('language') || 'es';
-    
-    // Función para cambiar el idioma
+
     function setLanguage(lang) {
         currentLang = lang;
         localStorage.setItem('language', lang);
-        
-        // Mostrar/ocultar elementos según el idioma
+
         document.querySelectorAll('.lang-es').forEach(el => {
             el.style.display = lang === 'es' ? '' : 'none';
         });
         document.querySelectorAll('.lang-en').forEach(el => {
             el.style.display = lang === 'en' ? '' : 'none';
         });
-        
-        // Actualizar clase activa en los botones
+
         document.querySelectorAll('.lang-btn').forEach(btn => {
             if (btn.getAttribute('data-lang') === lang) {
                 btn.classList.add('active');
@@ -509,20 +772,47 @@
                 btn.classList.remove('active');
             }
         });
-        
-        // Cambiar el atributo lang del HTML
+
         document.documentElement.lang = lang === 'es' ? 'es' : 'en';
     }
-    
-    // Configurar eventos de los botones
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             setLanguage(btn.getAttribute('data-lang'));
         });
     });
-    
-    // Aplicar el idioma guardado al cargar la página
+
     setLanguage(currentLang);
+
+    // ============================================================
+    // 2. TEMA (CLARO/OSCURO)
+    // ============================================================
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    const themeToggle = document.getElementById('themeToggle');
+
+    function setTheme(theme) {
+        currentTheme = theme;
+        localStorage.setItem('theme', theme);
+
+        if (theme === 'light') {
+            document.body.classList.add('light-theme');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            document.body.classList.remove('light-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+    }
+
+    // Aplicar tema guardado al cargar
+    setTheme(currentTheme);
 </script>
+
 </body>
 </html>
